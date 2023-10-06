@@ -15,10 +15,10 @@ jobs:
           run: npm install package.json
         - name: Set up Docker
           uses: docker/setup-buildx-action@v1
-        # - name: docker build
-        #   uses: docker build -t docker-image .
-        # - name: Save Docker Image as Artifact
-        #   uses: actions/upload-artifact@v2
-        #   with:
-        #     name: docker-image
-        #     path: /var/lib/docker/image/overlay2/imagedb/content/sha256/docker-image
+        - name: docker build
+          run: docker build -t docker-image .
+        - name: Save Docker Image as Artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: docker-image
+            path: /var/lib/docker/image/overlay2/imagedb/content/sha256/docker-image
